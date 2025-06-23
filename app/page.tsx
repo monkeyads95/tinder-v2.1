@@ -1396,7 +1396,7 @@ export default function SigiloX() {
                       <div className="flex-1">
                         <h3 className="text-white font-bold text-base sm:text-lg mb-1">Target Identified</h3>
                         <p className="text-blue-300 text-sm">
-                          Phone: {phoneNumber.replace(/(\+\d{1,3})(\d{2})(\d+)/, "$1 $2 ****")}
+                          Phone: {phoneNumber.replace(/(\+\d{1,3})(\d{2})(\d+)/, '$1 $2 ****')}
                         </p>
                         <div className="flex items-center gap-2 mt-2">
                           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
@@ -1954,68 +1954,22 @@ export default function SigiloX() {
                   </CardContent>
                 </Card>
 
-                {/* Email Capture Form */}
-                <Card className="bg-white rounded-2xl shadow-lg border-0 mb-4 sm:mb-6">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="text-center mb-4 sm:mb-6">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <Mail className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-2">
-                        Want to unlock the complete report with full photos, chat history, and locations?
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-4 sm:mb-6">
-                        Enter your best email below and we'll send you the full confidential report.
-                      </p>
-                    </div>
-
-                    <div className="space-y-4">
-                      {/* Email Input */}
-                      <div>
-                        <label className="block text-sm font-semibold text-[#333333] mb-2">
-                          Email Address *
-                        </label>
-                        <Input
-                          type="email"
-                          placeholder="Enter your email to receive the full report"
-                          value={email}
-                          onChange={(e) => {
-                            setEmail(e.target.value)
-                            setEmailError("")
-                          }}
-                          className="rounded-xl border-2 border-gray-200 focus:border-blue-500 transition-colors duration-200 py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base"
-                          disabled={isSubmittingEmail}
-                        />
-                        {emailError && <p className="text-xs sm:text-sm text-red-500 mt-2 font-medium">{emailError}</p>}
-                      </div>
-
-                      {/* Submit Button */}
-                      <Button
-                        onClick={handleEmailSubmit}
-                        disabled={!email || !email.includes("@") || isSubmittingEmail}
-                        className={`w-full py-3 sm:py-4 text-base sm:text-lg font-bold rounded-xl transition-all duration-300 touch-manipulation ${
-                          email && email.includes("@") && !isSubmittingEmail
-                            ? "bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white shadow-xl hover:shadow-2xl transform hover:scale-105"
-                            : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                        }`}
-                      >
-                        {isSubmittingEmail ? (
-                          <div className="flex items-center justify-center gap-2">
-                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                            <span>SENDING REPORT...</span>
-                          </div>
-                        ) : (
-                          "📧 SEND ME THE COMPLETE REPORT"
-                        )}
-                      </Button>
-
-                      <p className="text-xs text-gray-500 text-center flex items-center justify-center gap-2 font-medium">
-                        <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
-                        Your email is encrypted and never shared with third parties
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
+                {/* CTA - Email Capture */}
+                <div className="text-center">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-2 sm:mb-3">
+                    UNLOCK THE COMPLETE REPORT
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-4 sm:mb-6">
+                    See photos, conversations and exact location of the profile.
+                  </p>
+                  <Button
+                    onClick={() => setCurrentStep("email-capture")}
+                    className="bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-full touch-manipulation"
+                  >
+                    🔓 UNLOCK REPORT NOW
+                  </Button>
+                  <p className="text-xs text-gray-500 mt-4 font-medium">Limited time offer only.</p>
+                </div>
               </div>
             </motion.div>
           )}
@@ -2030,8 +1984,7 @@ export default function SigiloX() {
               className="min-h-screen bg-gradient-to-br from-[#6C63FF] to-[#8B5CF6] relative overflow-hidden"
             >
               {/* Floating particles - Reduced for mobile */}
-              <div className="absolute inset-0">
-                {[...Array(10)].map((_, i) => (
+              <div className="absolute inset-0">       {[...Array(10)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute w-2 h-2 bg-white rounded-full opacity-20"
@@ -2256,7 +2209,7 @@ export default function SigiloX() {
 
                       {/* Submit Button */}
                       <Button
-                        onClick={() => window.open("https://global.mundpay.com/priyelxoql?src=v2", "_blank")}
+                        onClick={() => window.open("https://global.mundpay.com/priyelxoql?src=yt", "_blank")}
                         className="w-full py-3 sm:py-4 text-base sm:text-lg font-bold rounded-xl bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 touch-manipulation"
                       >
                         💳 UNLOCK WITH SECURE PAYMENT
@@ -2293,5 +2246,5 @@ export default function SigiloX() {
         </AnimatePresence>
       </div>
     </div>
-  )\
+  )
 }
